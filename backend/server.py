@@ -21,7 +21,9 @@ db = client[os.environ['DB_NAME']]
 
 # Create the main app without a prefix
 app = FastAPI()
-
+@app.get("/")
+def read_root():
+    return {"message": "Добре дошли в Mercedes Restoration API!", "status": "online"}
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
